@@ -28,10 +28,10 @@ for name, cod in titles.items():
     price = 0
     cost = 0
     for code in store[cod]:
-        quan = code["quantity"]
+        quan += code["quantity"]
         price = code["price"]
-        cost = quan * price
-        print(name, "-", quan, "шт, стоимость", cost, "рублей")
+        cost += quan * price
+    print(name, "-", quan, "шт, стоимость", cost, "рублей")
 # Рассчитайте на какую сумму лежит каждого товара на складе.
 #
 # Вывести суммарную стоимость каждого товара в магазине в формате:
