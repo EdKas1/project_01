@@ -77,3 +77,21 @@ print("Д:", datetime.time(00, sum_res01, sum_res02).strftime('%M:%S'), "мин:
 # Дополнительно 
 # Пункт D.
 # Переведите минуты и секунды в формат времени. Используйте модуль datetime 
+
+# Хм, ну вообще изобретательно) но сложновато.
+# К сожалению мы натыкаемся на ошибку в 39ой строке( 
+# Так как код будет работать корректно не всегда. для datetime.time не все параметры подходят(
+
+# вот альтернативный вариант с дополнительным модулем math.
+from datetime import timedelta
+from math import modf
+from random import sample
+
+
+total_time = timedelta()
+
+for song in sample(my_favorite_songs, 3):
+    s, m = modf(song[1])
+    total_time += timedelta(minutes=int(m), seconds=int(s * 100))
+
+print(f'Три песни звучат {total_time} минут')
